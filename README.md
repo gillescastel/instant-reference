@@ -2,7 +2,13 @@
 
 This repository complements [my blog post on my PhD workflow](https://castel.dev/post/phd-workflow).
 
+Pdf reference:
+
 ![pdf-reference](https://user-images.githubusercontent.com/7069691/162628728-099034c5-378b-421b-bbac-4cf35ab089aa.gif)
+
+Url reference:
+
+![url-reference](https://user-images.githubusercontent.com/7069691/162628882-309c98d0-5e66-4565-a9ed-a60975337317.gif)
 
 
 ## Installing 
