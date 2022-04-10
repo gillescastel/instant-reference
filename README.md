@@ -1,6 +1,6 @@
-# PhD workflow and Instant Pdf referencing 
+# Instant Reference
 
-This repository complements [my blog post on my PhD and referencing workflow](https://castel.dev/post/phd-workflow).
+This repository complements [my blog post on my PhD workflow](https://castel.dev/post/phd-workflow).
 
 
 ## Installing 
