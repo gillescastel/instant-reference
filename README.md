@@ -16,7 +16,7 @@ Url reference:
 First install dependencies by running
 
 ```
-sudo apt install xclip exiftool xdotool x11-utils zenity rofi
+sudo apt install xclip exiftool xdotool x11-utils zenity
 ```
 
 Then clone this repository into a directory.
