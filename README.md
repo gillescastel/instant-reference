@@ -89,7 +89,7 @@ Then add the following userscript:
 
 So this simply adds a link to ArXiv with url `phd://download-arxiv/download?title=Title&authors=&Authors&download=pdfUrl`. When you click on it the custom protocol handler takes over and downloads the file.
 
-Finally, change download location by editing `config.js` and changing the value of `papersDirectory`.
+Change download location by editing `config.js` and changing the value of `papersDirectory`.
 
 If you get errors using Firefox, try this.
 Go to `about:config` and add the following settings:
