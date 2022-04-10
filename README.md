@@ -57,8 +57,7 @@ xdg-mime default phd.desktop x-scheme-handler/phd
 
 ### Installing the 'Add to library button'
 
-Install a userscripts manager add-on for your browser, for example Tampermonkey (
-[Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)).
+Install a userscripts manager add-on for your browser, for example Tampermonkey ([Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)).
 Then add the following userscript:
 ```javascript
 // ==UserScript==
