@@ -56,6 +56,8 @@ sudo update-desktop-database
 xdg-mime default phd.desktop x-scheme-handler/phd
 ```
 
+In `config.js` located in `instant-reference`, change the pdfViewer to the one you use (in Ubuntu, the default is evince).
+
 ### Installing the 'Add to library button' (optional)
 
 Install a userscripts manager add-on for your browser, for example Tampermonkey ([Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)).

@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-import {papersDirectory} from "./config.js";
+import {papersDirectory, pdfReader} from "./config.js";
 import {execa} from "execa";
 import {join} from "node:path";
 import fs from "node:fs";
@@ -10,11 +10,11 @@ import {idToPath, downloadFile, notify} from "./utils.js";
 async function openPdf({id, page = 0}) {
   const path = await idToPath(id);
   console.log(id, path);
-  await execa("zathura", [path, "-P", page]);
+  await execa(pdfReader, [path, "-P", page]);
 }
 
 async function downloadArxiv({authors: authorsStr, title, download}) {
-  notify(title);
+  notify('Downloading ' + title);
   const allAuthors = authorsStr.split(",").map(lastNameFirst);
   const authors = allAuthors.slice(0, 5);
 
@@ -22,6 +22,8 @@ async function downloadArxiv({authors: authorsStr, title, download}) {
     papersDirectory,
     title + " -- " + authors + ".pdf"
   );
+
+  // check if file exists.
 
   // only if it exists!
   await downloadFile(download + ".pdf", path);
@@ -32,7 +34,7 @@ async function downloadArxiv({authors: authorsStr, title, download}) {
     path,
   ]);
 
-  execa("zathura", [path]);
+  execa(pdfReader, [path]);
 }
 
 function lastNameFirst(author) {
