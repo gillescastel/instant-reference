@@ -1,6 +1,6 @@
 # Instant Reference
 
-This repository complements [my blog post on my PhD workflow](https://castel.dev/post/phd-workflow).
+This repository complements [my blog post on my Mathematics PhD research workflow](https://castel.dev/post/research-workflow).
 
 Pdf reference:
 
