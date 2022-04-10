@@ -107,7 +107,7 @@ Then once you click a `phd://` link it will ask you to how to open these kind of
 
 ### Setting up the shortcut
 
-Using your preferred shortcut manager (Or Settings > Keyboard Shortcuts in Ubuntu), add a shortcut that executes 
+Using your preferred shortcut manager (E.g. Settings > Keyboard Shortcuts in Ubuntu), add a shortcut that executes 
 `/home/username/path/to/directory/copy-reference.js`.
 
 When you press this shortcut, the script will copy a bit of LaTeX code for you to paste in your editor.
@@ -127,6 +127,12 @@ By adding the following definition of `\pdfref` to your preamble, the copied LaT
     \href{phd://open-paper?id=#1&page=#2}{%
     \textup{[\textbf{\ifthenelse{\isempty{#3}}{here}{#3}}]}}%
 }
+```
+
+The first argument of `\pdfref` is the id of the document, the second the page number and the third the title, which is by default the title of the pdf, which you can change by running
+  
+```bash
+exiftool -overwrite_original_in_place -Title="New title" document.pdf
 ```
 
 
@@ -160,4 +166,18 @@ sudo aa-complain /usr/bin/evince
 Interested in adding support for other pdf viewers? Feel free to add a pull request. Have a look at `get-current-pdf-page.js` to get started.
 
 
-### Debugging
+## Debugging
+
+To debug the protocol handler, run the following and have a look at the output. This should download 'Ricci flow with surgery on three-manifolds' to your preferred download location.
+
+```bash
+./phd-protocol-handler.js "phd://download-arxiv/test?title=Ricci+flow+with+surgery+on+three-manifolds&download=https%3A%2F%2Farxiv.org%2Fpdf%2Fmath%2F0303109&authors=Grisha+Perelman"
+```
+
+For the reference shortcut, run
+
+```bash
+sleep 2; ./copy-reference.js
+```
+
+Within two second, move activate your pdf reader and have a look at the output.
