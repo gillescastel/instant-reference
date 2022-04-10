@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 import {execa, execaCommand, execaCommandSync} from "execa";
 import {copy, wait, press, notify, pathToId} from "./utils.js";
 import {getCurrentPdfPage} from "./get-current-pdf-page.js";

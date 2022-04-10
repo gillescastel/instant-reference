@@ -16,7 +16,7 @@ Url reference:
 First install dependencies by running
 
 ```
-sudo apt install xclip exiftool xdotool x11-utils zenity
+sudo apt install xclip exiftool xdotool x11-utils zenity xsel
 ```
 
 Then clone this repository into a directory.
@@ -108,7 +108,7 @@ Then once you click a `phd://` link it will ask you to how to open these kind of
 ### Setting up the shortcut
 
 Using your preferred shortcut manager (Or Settings > Keyboard Shortcuts in Ubuntu), add a shortcut that executes 
-`node /home/username/path/to/directory/copy-reference.js`.
+`/home/username/path/to/directory/copy-reference.js`.
 
 When you press this shortcut, the script will copy a bit of LaTeX code for you to paste in your editor.
 By adding the following definition of `\pdfref` to your preamble, the copied LaTeX snippet will transform in a clickable link, and upon clicking on it, the custom protocol handler will open the document at the correct page.
