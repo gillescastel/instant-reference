@@ -105,7 +105,7 @@ Then once you click a `phd://` link it will ask you to how to open these kind of
 ### Setting up the shortcuts.
 
 Using your proffered shortcut manager, add a shortcut that executes 
-`node /home/username/path/to/directory/copy-pdf-reference.js`.
+`node /home/username/path/to/directory/copy-reference.js`.
 
 When you press this shortcut, the script will copy a bit of LaTeX code for you to paste in your editor.
 By adding the following definition of `\pdfref` to your preamble, the copied LaTeX snippet will transform in a clickable link, and upon clicking on it, the custom protocol handler will open the document at the correct page.
