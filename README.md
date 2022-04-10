@@ -112,7 +112,15 @@ When you press this shortcut, the script will copy a bit of LaTeX code for you t
 By adding the following definition of `\pdfref` to your preamble, the copied LaTeX snippet will transform in a clickable link, and upon clicking on it, the custom protocol handler will open the document at the correct page.
 
 ```tex
+\usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage{xifthen}
+\usepackage{fontawesome}
+
+\newcommand\urlref[2]{%
+    \href{#1}{\raisebox{0.15ex}{\scriptsize \faLink}\:\textup{\textbf{#2}}}%
+}
+
 \newcommand\pdfref[3]{%
     \href{phd://open-paper?id=#1&page=#2}{%
     \textup{[\textbf{\ifthenelse{\isempty{#3}}{here}{#3}}]}}%
