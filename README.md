@@ -14,8 +14,8 @@ sudo apt install xclip exiftool xdotool x11-utils zenity rofi
 Then clone this repository into a directory.
 ```bash
 cd directory
-git clone https://github.com/gillescastel/instant-pdf-referencing
-cd instant-pdf-referencing
+git clone https://github.com/gillescastel/instant-reference
+cd instant-reference
 npm install
 ```
 
