@@ -14,15 +14,15 @@ sudo apt install xclip exiftool xdotool x11-utils zenity rofi
 Then clone this repository into a directory.
 ```bash
 cd directory
-git clone https://github.com/gillescastel/pdf-ref
-cd scripts
+git clone https://github.com/gillescastel/instant-pdf-referencing
+cd instant-pdf-referencing
 npm install
 ```
 
 
-Then add the `scripts` directory to your PATH by adding the following to your `~/.profile`:
+Then add this directory to your PATH by adding the following to your `~/.profile`:
 ```bash
-export PATH="/home/username/path/to/directory/scripts:$PATH"
+export PATH="/home/username/path/to/directory:$PATH"
 ```
 
 You might need to log out and log in for this to work.
@@ -81,27 +81,27 @@ Then add the following userscript:
 
 So this simply adds a link to ArXiv with url `phd://download-arxiv/download?title=Title&authors=&Authors&download=pdfUrl`. When you click on it the custom protocol handler takes over and downloads the file.
 
-Finally, change download location by editing `scripts/config.js` and changing the value of `papersDirectory`.
+Finally, change download location by editing `config.js` and changing the value of `papersDirectory`.
 
 If you get errors using Firefox, try this.
 Go to `about:config` and add the following settings:
 
 ```
-network.protocol-handler.app.phd	/home/username/path/to/directory/scripts/phd-protocol-handler.js	
+network.protocol-handler.app.phd	/home/username/path/to/directory/phd-protocol-handler.js	
 network.protocol-handler.expose.phd	false	
 network.protocol-handler.external.phd	true
 ```
 
-Then once you click a `phd://` link it will ask you to how to open these kind of links. Specify the protocol handler located at `/home/username/path/to/directory/scripts/phd-protocol-handler.js` and click on 'Don't ask next time'.
+Then once you click a `phd://` link it will ask you to how to open these kind of links. Specify the protocol handler located at `/home/username/path/to/directory/phd-protocol-handler.js` and click on 'Don't ask next time'.
 
 
 ### Setting up the shortcuts.
 
 Using your proffered shortcut manager, add a shortcut that executes 
-`node /home/username/path/to/directory/scripts/copy-pdf-reference.js`.
+`node /home/username/path/to/directory/copy-pdf-reference.js`.
 
 When you press this shortcut, the script will copy a bit of LaTeX code for you to paste in your editor.
-Add the following definition of `\pdfref` to your preamble:
+By adding the following definition of `\pdfref` to your preamble, the copied LaTeX snippet will transform in a clickable link, and upon clicking on it, the custom protocol handler will open the document at the correct page.
 
 ```tex
 \usepackage{xifthen}
@@ -110,7 +110,6 @@ Add the following definition of `\pdfref` to your preamble:
     \textup{[\textbf{\ifthenelse{\isempty{#3}}{here}{#3}}]}}%
 }
 ```
-
 
 
 ## Supported Pdf readers
@@ -141,11 +140,3 @@ sudo aa-complain /usr/bin/evince
 ### Other pdf viewers
 
 Interested in adding support for other pdf viewers? Feel free to add a pull request. Have a look at `get-current-pdf-page.js` to get started.
-
-
-## Using the system
-
-For each day, add a `note.tex` to the directory `YYYY-MM-DD` in `notes`. Make sure that `master.tex` is selected as the main LaTeX file. I do this by pressing <kbd>Alt</kbd> + <kbd>N</kbd>. When you compile the file, you'll see a concatenation of the notes of the last 14 days.
-
-To reference an open pdf file, I press <kbd>Alt</kbd> + <kbd>F</kbd>. If referring to this file for the first time, it'll ask for an id, which you can freely choose.
-Then it copies a bit of LaTeX code to my clipboard. When I paste the code in `note.tex`, the result is a clickable link in the pdf (this is handled by `references.tex`). Clicking the link, the custom protocol takes over and opens the pdf file at the correct page.
