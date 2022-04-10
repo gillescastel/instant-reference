@@ -28,14 +28,15 @@ npm install
 ```
 
 
-Then add this directory to your PATH by adding the following to your `~/.profile`:
+Then add this directory to your PATH by adding the following line to the bottom of your `~/.profile` file:
+
 ```bash
-export PATH="/home/username/path/to/directory:$PATH"
+export PATH="/home/username/path/to/directory/instant-reference:$PATH"
 ```
 
 You might need to log out and log in for this to work.
 
-### Installing the protocol
+### Installing the protocol 
 
 Install the `phd` protocol by creating a file located at `~/.local/share/applications/phd.desktop` containing:
 
@@ -55,7 +56,7 @@ sudo update-desktop-database
 xdg-mime default phd.desktop x-scheme-handler/phd
 ```
 
-### Installing the 'Add to library button'
+### Installing the 'Add to library button' (optional)
 
 Install a userscripts manager add-on for your browser, for example Tampermonkey ([Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)).
 Then add the following userscript:
@@ -88,7 +89,7 @@ Then add the following userscript:
 
 So this simply adds a link to ArXiv with url `phd://download-arxiv/download?title=Title&authors=&Authors&download=pdfUrl`. When you click on it the custom protocol handler takes over and downloads the file.
 
-Change download location by editing `config.js` and changing the value of `papersDirectory`.
+**Change download location by editing `config.js` (located in the `instant-reference` directory) and changing the value of `papersDirectory`.** Be sure to create the directory.
 
 If you get errors using Firefox, try this.
 Go to `about:config` and add the following settings:
@@ -102,9 +103,9 @@ network.protocol-handler.external.phd	true
 Then once you click a `phd://` link it will ask you to how to open these kind of links. Specify the protocol handler located at `/home/username/path/to/directory/phd-protocol-handler.js` and click on 'Don't ask next time'.
 
 
-### Setting up the shortcuts.
+### Setting up the shortcut
 
-Using your proffered shortcut manager, add a shortcut that executes 
+Using your preferred shortcut manager (Or Settings > Keyboard Shortcuts in Ubuntu), add a shortcut that executes 
 `node /home/username/path/to/directory/copy-reference.js`.
 
 When you press this shortcut, the script will copy a bit of LaTeX code for you to paste in your editor.
@@ -155,3 +156,6 @@ sudo aa-complain /usr/bin/evince
 ### Other pdf viewers
 
 Interested in adding support for other pdf viewers? Feel free to add a pull request. Have a look at `get-current-pdf-page.js` to get started.
+
+
+### Debugging
