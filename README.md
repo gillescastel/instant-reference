@@ -60,6 +60,8 @@ In `config.js` located in `instant-reference`, change the `pdfViewer` to the one
 
 ### Installing the 'Add to library button' (optional)
 
+![arxiv2](https://user-images.githubusercontent.com/7069691/162634543-b7d6b4ee-e102-4799-8207-16e3cd1db865.png)
+
 Install a userscripts manager add-on for your browser, for example Tampermonkey ([Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)).
 Then add the following userscript:
 ```javascript
