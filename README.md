@@ -56,7 +56,7 @@ sudo update-desktop-database
 xdg-mime default phd.desktop x-scheme-handler/phd
 ```
 
-In `config.js` located in `instant-reference`, change the pdfViewer to the one you use (in Ubuntu, the default is evince).
+In `config.js` located in `instant-reference`, change the `pdfViewer` to the one you use (in Ubuntu, the default is evince).
 
 ### Installing the 'Add to library button' (optional)
 
