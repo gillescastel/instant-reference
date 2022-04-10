@@ -10,7 +10,18 @@ import {idToPath, downloadFile, notify} from "./utils.js";
 async function openPdf({id, page = 0}) {
   const path = await idToPath(id);
   console.log(id, path);
-  await execa(pdfReader, [path, "-P", page]);
+  if (pdfReader == 'zathura')
+    return await execa(pdfReader, [path, "-P", page]);
+  if (pdfReader == 'evince')
+    return await execa(pdfReader, ["--page-index", page, path]);
+
+  try {
+    await execa(pdfReader, [path, "-p", page]);
+  } catch (e) {
+    try {
+      await execa(pdfReader, [path, "-p", page]);
+    } catch (e) {}
+  }
 }
 
 async function downloadArxiv({authors: authorsStr, title, download}) {
